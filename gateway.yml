@@ -1,0 +1,19 @@
+# configuracion de gateway
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: api-1
+          uri: http://localhost:8091/
+          predicates:
+            - Method=GET,POST,DELETE,PUT
+            - Path= /api-1/*
+          filters:
+            - StripPrefix=1
+#        - id: api-2
+#          uri: http://localhost:8092/
+#          predicates:
+#            - Method=GET,POST,DELETE,PUT
+#            - Path= /api-1/*
+#          filters:
+#            - StripPrefix=1
